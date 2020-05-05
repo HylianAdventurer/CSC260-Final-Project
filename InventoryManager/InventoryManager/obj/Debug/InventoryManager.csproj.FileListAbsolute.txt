@@ -1,0 +1,9 @@
+C:\Users\DSU\Desktop\DSU\CSC 260 - Object Oriented Design\Final Project\CSC260-Final-Project\InventoryManager\InventoryManager\bin\Debug\InventoryManager.exe.config
+C:\Users\DSU\Desktop\DSU\CSC 260 - Object Oriented Design\Final Project\CSC260-Final-Project\InventoryManager\InventoryManager\bin\Debug\InventoryManager.exe
+C:\Users\DSU\Desktop\DSU\CSC 260 - Object Oriented Design\Final Project\CSC260-Final-Project\InventoryManager\InventoryManager\bin\Debug\InventoryManager.pdb
+C:\Users\DSU\Desktop\DSU\CSC 260 - Object Oriented Design\Final Project\CSC260-Final-Project\InventoryManager\InventoryManager\obj\Debug\InventoryManager.csprojAssemblyReference.cache
+C:\Users\DSU\Desktop\DSU\CSC 260 - Object Oriented Design\Final Project\CSC260-Final-Project\InventoryManager\InventoryManager\obj\Debug\InventoryManager.Properties.Resources.resources
+C:\Users\DSU\Desktop\DSU\CSC 260 - Object Oriented Design\Final Project\CSC260-Final-Project\InventoryManager\InventoryManager\obj\Debug\InventoryManager.csproj.GenerateResource.cache
+C:\Users\DSU\Desktop\DSU\CSC 260 - Object Oriented Design\Final Project\CSC260-Final-Project\InventoryManager\InventoryManager\obj\Debug\InventoryManager.exe
+C:\Users\DSU\Desktop\DSU\CSC 260 - Object Oriented Design\Final Project\CSC260-Final-Project\InventoryManager\InventoryManager\obj\Debug\InventoryManager.pdb
+C:\Users\DSU\Desktop\DSU\CSC 260 - Object Oriented Design\Final Project\CSC260-Final-Project\InventoryManager\InventoryManager\obj\Debug\InventoryManager.InventoryManager.resources

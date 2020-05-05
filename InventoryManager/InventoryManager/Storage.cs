@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManager
 {
-    class Storage : Location
+    class Storage : PhysicalLocation
     {
         private string p_shelfName;
         private int p_shelfNumber;
@@ -14,19 +14,37 @@ namespace InventoryManager
         public string ShelfName
         {
             get { return p_shelfName; }
-            set { p_shelfName = value; }
+            set
+            {
+                p_shelfName = value;
+                FormatLabel();
+            }
         }
 
         public int ShelfNumber
         {
             get { return p_shelfNumber; }
-            set { p_shelfNumber = value; }
+            set
+            {
+                p_shelfNumber = value;
+                FormatLabel();
+            }
         }
 
-        public Storage(string shelfName, int shelfNumber)
+        public Storage(string shelfName, int shelfNumber) : base()
         {
+            InfoLabel = new System.Windows.Forms.Label();
             p_shelfName = shelfName;
             p_shelfNumber = shelfNumber;
+            FormatLabel();
+            Controls.Add(InfoLabel);
+            InfoLabel.AutoSize = true;
+            AutoSize = true;
+        }
+
+        protected override void FormatLabel()
+        {
+            InfoLabel.Text = "Shelf: " + p_shelfName + " " + p_shelfNumber;
         }
 
         public override string ToString()

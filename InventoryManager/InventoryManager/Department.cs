@@ -6,19 +6,32 @@ using System.Threading.Tasks;
 
 namespace InventoryManager
 {
-    class Department : Location
+    class Department : PhysicalLocation
     {
         private string p_deptName;
 
         public string DeptName
         {
             get { return p_deptName; }
-            set { p_deptName = value; }
+            set
+            {
+                p_deptName = value;
+                FormatLabel();
+            }
         }
 
-        public Department(string deptName)
+        public Department(string deptName) : base()
         {
-            p_deptName = deptName;
+            InfoLabel = new System.Windows.Forms.Label();
+            DeptName = deptName;
+            Controls.Add(InfoLabel);
+            InfoLabel.AutoSize = true;
+            AutoSize = true;
+        }
+
+        protected override void FormatLabel()
+        {
+            InfoLabel.Text = "Department: " + p_deptName;
         }
 
         public override string ToString()

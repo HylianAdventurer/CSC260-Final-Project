@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace InventoryManager
 {
-    abstract class Location
+    abstract class PhysicalLocation : Displayable
     {
-        public Location ParseLocation(string[] parseStrings)
+        
+        
+        public static PhysicalLocation ParseLocation(string[] parseStrings)
         {
             if(int.TryParse(parseStrings[0], out int quantity))
                 return new Storage(parseStrings[1], quantity);

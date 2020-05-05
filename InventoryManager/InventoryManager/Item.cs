@@ -6,37 +6,50 @@ using System.Threading.Tasks;
 
 namespace InventoryManager
 {
-    class Item
+    class Item : Displayable
     {
-        private string p_name;
+        private string p_itemName;
         private int p_id;
 
-        public string Name
+        public string ItemName
         {
-            get { return p_name; }
-            set { p_name = value; }
+            get { return p_itemName; }
+            set
+            {
+                p_itemName = value;
+                FormatLabel();
+            }
         }
 
         public int ID
         {
             get { return p_id; }
-            set { p_id = value; }
+            set
+            {
+                p_id = value;
+                FormatLabel();
+            }
         }
 
-        public Item(string name, int ID)
+        public Item(string itemName, int id) : base()
         {
-            p_name = name;
-            p_id = ID;
+            ItemName = itemName;
+            ID = id;
         }
 
         public Item(ref string[] parseStrings) : this(parseStrings[0], int.Parse(parseStrings[1]))
         {
-            parseStrings = parseStrings.Skip<string>(2).ToArray();
+            parseStrings = parseStrings.Skip(2).ToArray();
+        }
+
+        protected override void FormatLabel()
+        {
+            InfoLabel.Text = "Item Name: " + p_itemName + "\nItem ID: " + p_id;
         }
 
         public override string ToString()
         {
-            return p_name + "," + p_id;
+            return p_itemName + "," + p_id;
         }
     }
 }
