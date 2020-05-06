@@ -24,6 +24,7 @@ namespace InventoryManager
 
         private void UpdateInventory()
         {
+            Sort();
             foreach (Order order in Inventory)
             {
                 InventoryViewer.Controls.Remove(order);
@@ -187,6 +188,37 @@ namespace InventoryManager
             DueDateDisplay.Text = new DateTime().ToString();
             LocationNameDisplay.Text = "Location Name";
             ShelfNumberDisplay.Value = 0;
+        }
+
+        private void DeleteAllButton_Click(object sender, EventArgs e)
+        {
+            foreach (Order order in Inventory) InventoryViewer.Controls.Remove(order);
+            Inventory.Clear();
+            UpdateInventory();
+            ClearOrder();
+        }
+
+        private void SortingChange(object sender, EventArgs e)
+        {
+            UpdateInventory();
+        }
+
+        private void Sort()
+        {
+            if(OrderIDButton.Checked)
+                Inventory = (from order in Inventory orderby order.ID select order).ToList();
+            else if (ItemNameButton.Checked)
+                Inventory = (from order in Inventory orderby order.Item.Name select order).ToList();
+            else if(ItemIDButton.Checked)
+                Inventory = (from order in Inventory orderby order.Item.ID select order).ToList();
+            else if(QuantityButton.Checked)
+                Inventory = (from order in Inventory orderby order.Quantity select order).ToList();
+            else if(ReceivedDateButton.Checked)
+                Inventory = (from order in Inventory orderby order.ReceiveDate select order).ToList();
+            else if(DueDateButton.Checked)
+                Inventory = (from order in Inventory orderby order.DueDate select order).ToList();
+            else if(LocationButton.Checked)
+                Inventory = (from order in Inventory orderby order.OrderLocation.InfoLabel.Text select order).ToList();
         }
     }
 }

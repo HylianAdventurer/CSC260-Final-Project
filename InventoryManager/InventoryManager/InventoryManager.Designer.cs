@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.ActionsMenu = new System.Windows.Forms.Panel();
+            this.DeleteAllButton = new System.Windows.Forms.Button();
+            this.SortingBox = new System.Windows.Forms.GroupBox();
+            this.LocationButton = new System.Windows.Forms.RadioButton();
+            this.DueDateButton = new System.Windows.Forms.RadioButton();
+            this.ReceivedDateButton = new System.Windows.Forms.RadioButton();
+            this.QuantityButton = new System.Windows.Forms.RadioButton();
+            this.ItemIDButton = new System.Windows.Forms.RadioButton();
+            this.OrderIDButton = new System.Windows.Forms.RadioButton();
             this.QuantityUnitsDisplay = new System.Windows.Forms.TextBox();
             this.ErrorLabel = new System.Windows.Forms.Label();
             this.DeselectButton = new System.Windows.Forms.Button();
@@ -60,7 +68,9 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.InventoryViewer = new System.Windows.Forms.FlowLayoutPanel();
+            this.ItemNameButton = new System.Windows.Forms.RadioButton();
             this.ActionsMenu.SuspendLayout();
+            this.SortingBox.SuspendLayout();
             this.OrderLocationGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShelfNumberDisplay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QuantityDisplay)).BeginInit();
@@ -73,6 +83,8 @@
             // 
             this.ActionsMenu.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ActionsMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ActionsMenu.Controls.Add(this.DeleteAllButton);
+            this.ActionsMenu.Controls.Add(this.SortingBox);
             this.ActionsMenu.Controls.Add(this.QuantityUnitsDisplay);
             this.ActionsMenu.Controls.Add(this.ErrorLabel);
             this.ActionsMenu.Controls.Add(this.DeselectButton);
@@ -97,6 +109,100 @@
             this.ActionsMenu.Size = new System.Drawing.Size(200, 455);
             this.ActionsMenu.TabIndex = 1;
             // 
+            // DeleteAllButton
+            // 
+            this.DeleteAllButton.Location = new System.Drawing.Point(111, 304);
+            this.DeleteAllButton.Name = "DeleteAllButton";
+            this.DeleteAllButton.Size = new System.Drawing.Size(75, 23);
+            this.DeleteAllButton.TabIndex = 18;
+            this.DeleteAllButton.Text = "Delete All";
+            this.DeleteAllButton.UseVisualStyleBackColor = true;
+            this.DeleteAllButton.Click += new System.EventHandler(this.DeleteAllButton_Click);
+            // 
+            // SortingBox
+            // 
+            this.SortingBox.Controls.Add(this.OrderIDButton);
+            this.SortingBox.Controls.Add(this.ItemNameButton);
+            this.SortingBox.Controls.Add(this.LocationButton);
+            this.SortingBox.Controls.Add(this.DueDateButton);
+            this.SortingBox.Controls.Add(this.ReceivedDateButton);
+            this.SortingBox.Controls.Add(this.QuantityButton);
+            this.SortingBox.Controls.Add(this.ItemIDButton);
+            this.SortingBox.Location = new System.Drawing.Point(14, 333);
+            this.SortingBox.Name = "SortingBox";
+            this.SortingBox.Size = new System.Drawing.Size(172, 114);
+            this.SortingBox.TabIndex = 17;
+            this.SortingBox.TabStop = false;
+            this.SortingBox.Text = "Sort By";
+            // 
+            // LocationButton
+            // 
+            this.LocationButton.AutoSize = true;
+            this.LocationButton.Location = new System.Drawing.Point(81, 68);
+            this.LocationButton.Name = "LocationButton";
+            this.LocationButton.Size = new System.Drawing.Size(66, 17);
+            this.LocationButton.TabIndex = 5;
+            this.LocationButton.Text = "Location";
+            this.LocationButton.UseVisualStyleBackColor = true;
+            this.LocationButton.CheckedChanged += new System.EventHandler(this.SortingChange);
+            // 
+            // DueDateButton
+            // 
+            this.DueDateButton.AutoSize = true;
+            this.DueDateButton.Location = new System.Drawing.Point(81, 45);
+            this.DueDateButton.Name = "DueDateButton";
+            this.DueDateButton.Size = new System.Drawing.Size(71, 17);
+            this.DueDateButton.TabIndex = 4;
+            this.DueDateButton.Text = "Due Date";
+            this.DueDateButton.UseVisualStyleBackColor = true;
+            this.DueDateButton.CheckedChanged += new System.EventHandler(this.SortingChange);
+            // 
+            // ReceivedDateButton
+            // 
+            this.ReceivedDateButton.AutoSize = true;
+            this.ReceivedDateButton.Location = new System.Drawing.Point(81, 22);
+            this.ReceivedDateButton.Name = "ReceivedDateButton";
+            this.ReceivedDateButton.Size = new System.Drawing.Size(97, 17);
+            this.ReceivedDateButton.TabIndex = 3;
+            this.ReceivedDateButton.Text = "Received Date";
+            this.ReceivedDateButton.UseVisualStyleBackColor = true;
+            this.ReceivedDateButton.CheckedChanged += new System.EventHandler(this.SortingChange);
+            // 
+            // QuantityButton
+            // 
+            this.QuantityButton.AutoSize = true;
+            this.QuantityButton.Location = new System.Drawing.Point(4, 91);
+            this.QuantityButton.Name = "QuantityButton";
+            this.QuantityButton.Size = new System.Drawing.Size(64, 17);
+            this.QuantityButton.TabIndex = 2;
+            this.QuantityButton.Text = "Quantity";
+            this.QuantityButton.UseVisualStyleBackColor = true;
+            this.QuantityButton.CheckedChanged += new System.EventHandler(this.SortingChange);
+            // 
+            // ItemIDButton
+            // 
+            this.ItemIDButton.AutoSize = true;
+            this.ItemIDButton.Location = new System.Drawing.Point(4, 68);
+            this.ItemIDButton.Name = "ItemIDButton";
+            this.ItemIDButton.Size = new System.Drawing.Size(59, 17);
+            this.ItemIDButton.TabIndex = 1;
+            this.ItemIDButton.Text = "Item ID";
+            this.ItemIDButton.UseVisualStyleBackColor = true;
+            this.ItemIDButton.CheckedChanged += new System.EventHandler(this.SortingChange);
+            // 
+            // OrderIDButton
+            // 
+            this.OrderIDButton.AutoSize = true;
+            this.OrderIDButton.Checked = true;
+            this.OrderIDButton.Location = new System.Drawing.Point(4, 22);
+            this.OrderIDButton.Name = "OrderIDButton";
+            this.OrderIDButton.Size = new System.Drawing.Size(65, 17);
+            this.OrderIDButton.TabIndex = 0;
+            this.OrderIDButton.TabStop = true;
+            this.OrderIDButton.Text = "Order ID";
+            this.OrderIDButton.UseVisualStyleBackColor = true;
+            this.OrderIDButton.CheckedChanged += new System.EventHandler(this.SortingChange);
+            // 
             // QuantityUnitsDisplay
             // 
             this.QuantityUnitsDisplay.Location = new System.Drawing.Point(111, 76);
@@ -117,7 +223,7 @@
             // 
             // DeselectButton
             // 
-            this.DeselectButton.Location = new System.Drawing.Point(61, 304);
+            this.DeselectButton.Location = new System.Drawing.Point(14, 304);
             this.DeselectButton.Name = "DeselectButton";
             this.DeselectButton.Size = new System.Drawing.Size(75, 23);
             this.DeselectButton.TabIndex = 14;
@@ -386,6 +492,17 @@
             this.InventoryViewer.Size = new System.Drawing.Size(574, 430);
             this.InventoryViewer.TabIndex = 3;
             // 
+            // ItemNameButton
+            // 
+            this.ItemNameButton.AutoSize = true;
+            this.ItemNameButton.Location = new System.Drawing.Point(4, 45);
+            this.ItemNameButton.Name = "ItemNameButton";
+            this.ItemNameButton.Size = new System.Drawing.Size(76, 17);
+            this.ItemNameButton.TabIndex = 7;
+            this.ItemNameButton.Text = "Item Name";
+            this.ItemNameButton.UseVisualStyleBackColor = true;
+            this.ItemNameButton.CheckedChanged += new System.EventHandler(this.SortingChange);
+            // 
             // InventoryManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,6 +516,8 @@
             this.Resize += new System.EventHandler(this.InventoryManager_Resize);
             this.ActionsMenu.ResumeLayout(false);
             this.ActionsMenu.PerformLayout();
+            this.SortingBox.ResumeLayout(false);
+            this.SortingBox.PerformLayout();
             this.OrderLocationGroupBox.ResumeLayout(false);
             this.OrderLocationGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ShelfNumberDisplay)).EndInit();
@@ -446,6 +565,15 @@
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Label ErrorLabel;
         private System.Windows.Forms.TextBox QuantityUnitsDisplay;
+        private System.Windows.Forms.Button DeleteAllButton;
+        private System.Windows.Forms.GroupBox SortingBox;
+        private System.Windows.Forms.RadioButton LocationButton;
+        private System.Windows.Forms.RadioButton DueDateButton;
+        private System.Windows.Forms.RadioButton ReceivedDateButton;
+        private System.Windows.Forms.RadioButton QuantityButton;
+        private System.Windows.Forms.RadioButton ItemIDButton;
+        private System.Windows.Forms.RadioButton OrderIDButton;
+        private System.Windows.Forms.RadioButton ItemNameButton;
     }
 }
 
